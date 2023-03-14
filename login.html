@@ -7,14 +7,23 @@
 <meta http-equiv="expires" content="-1" />	
 <meta content='width=device-width, user-scalable=no' name='viewport'/>
 <link rel="stylesheet" href="login.css" media="screen">
- 
+<link rel="stylesheet" href="styles/input.css" media="screen">
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Inter">
 
 </head>
 <body class='login'>
 $(if chap-id)
 	<form name="sendin" action="$(link-login-only)" method="post">
-		<input type="hidden" name="username" />
-		<input type="hidden" name="password" />
+		<div class="form__group field">
+			<input type="hidden" name="username" />
+		</div>
+		<div class="form__group field">
+			<input type="hidden" name="password" />
+		</div>
+		
+		
+		
 		<input type="hidden" name="dst" value="$(link-orig)" />
 		<input type="hidden" name="popup" value="true" />
 	</form>
@@ -42,9 +51,18 @@ $(endif)
 	<img class="logo" src="logo.png" width="320px" />
 	<aqui se puede escribir>
 	</legend>
-	<input name="username" type="text" value="$(username)" placeholder="Nome de usuário" size="30" />
-	<input autocomplete="off" name="password" type="password" label="false" placeholder="Senha" size="30" />
-	<input name="submit" type="submit" value=" " />
+	<div class="form__group field">
+		<input type="input" class="form__field" size="30"  value="$(username)" placeholder="Nome" name="username" id='username' required />
+		<label for="username" class="form__label">Nome</label>
+	</div>
+
+	<div class="form__group field">
+		<input autocomplete="off" type="input" class="form__field" size="30"  placeholder="Nome" name="password" id='password' required />
+		<label for="password" class="form__label">Senha</label>
+	</div>
+
+
+	<input name="submit" type="submit" value="Enviar" />
 	<div class='footer'>
 	<!-- <p>$(if trial == 'yes')Free trial available, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</p> -->
 	<p>$(if error)<span style="color: #FF8080; font-size: 16px">$(error)</span>$(endif)</p>
